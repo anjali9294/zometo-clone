@@ -1,0 +1,365 @@
+:root {
+  --primary-color: #eb2929;
+  --dark-red: #ce0505;
+  --secondry-color: hsl(221, 59%, 24%);
+  --third-color: #636f88;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #fbfbfb;
+  font-family: "Poppins";
+}
+
+.main-section {
+  height: 70vh;
+  width: 100%;
+  background-color: red;
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.849)),
+    url("./img/main-bg.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+}
+.brand-logo {
+  height: 147px;
+  width: 147px;
+  border: 1px solid #707070;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brand-name {
+  color: var(--primary-color);
+
+  font-size: 70px;
+  font-weight: 600;
+  background-color: transparent;
+}
+
+.main-heading {
+  text-align: center;
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 36px;
+}
+.input-box {
+  background-color: white;
+  border-radius: 2px;
+  color: var(--third-color);
+  padding: 0.7rem;
+  margin-bottom: 3px;
+  border: none;
+}
+
+.input-group-text {
+  background-color: white;
+  margin-bottom: 3px;
+}
+
+/* list group */
+.list-group {
+  background-color: white;
+  border-radius: 0;
+  color: var(--third-color);
+  border: none;
+  margin-top: 5px;
+  border-radius: 3px;
+  display: none;
+}
+.list-group-item {
+  border: none;
+}
+
+.search-image {
+  height: 43px;
+  width: 43px;
+  border-radius: 50%;
+}
+.search-heading {
+  color: var(--secondry-color);
+  font-size: 16px;
+  font-weight: bold;
+}
+.search-para {
+  color: var(--third-color);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* second section */
+
+.quick-search-head {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--secondry-color);
+  margin-top: 2rem;
+}
+.quick-search-para {
+  font-size: 18px;
+  font-weight: 400;
+  color: #8c96ab;
+}
+
+.cards {
+  display: flex;
+  background-color: white;
+  width: 360px;
+  padding-left: 0px;
+  margin: 0 10px;
+  box-shadow: 0px 3px 6px #00000029;
+}
+
+.cards img {
+  height: 160px;
+  width: 160px;
+}
+
+.food-type-card {
+  width: 360px;
+  height: 160px;
+  box-shadow: 0px 3px 6px #00000029;
+  background-color: white;
+  display: flex;
+  margin: 22px 0;
+}
+
+.cards-body {
+  padding: 20px 20px 0 20px;
+}
+
+.cards-title {
+  color: #192f60;
+  font-size: 18px;
+  font-weight: 600;
+}
+.cards-text {
+  color: #8c96ab;
+  font-size: 14px;
+}
+
+/* *****************************filter page******************************* */
+.heading {
+  background-color: var(--dark-red);
+}
+.filter-menu-brand-logo {
+  height: 52px;
+  width: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 50%;
+  padding-top: 0.7rem;
+}
+.filter-menu-logo-name {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+/* filter sreach */
+.main-para {
+  font-weight: bold;
+  font-size: 2rem;
+  color: var(--secondry-color);
+  margin: 25px 0;
+}
+.left-section {
+  width: 100%;
+  padding: 1.5rem 1.5rem;
+  box-shadow: 0 0 4px 0 #00000029;
+}
+
+.Filter-main-heading {
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--secondry-color);
+}
+.left-section-headings {
+  color: var(--secondry-color);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 8px 0;
+  margin-top: 0.5rem;
+}
+/* right section */
+.right-section {
+  box-shadow: 0 0 4px 0 #00000029;
+}
+#right-section-image img {
+  height: 120px;
+  width: 120px;
+  border-radius: 25px;
+}
+.shop-name {
+  color: var(--secondry-color);
+  font-size: 1.5rem;
+  font-weight: 600; /*semibold */
+}
+.place-name {
+  color: var(--secondry-color);
+  font-weight: 500; /*mediam */
+}
+.place-address {
+  color: var(--third-color);
+  font-weight: 400; /*regular*/
+}
+.place-address svg {
+  color: #eb2929;
+}
+.cuisines-price-section {
+  display: flex;
+}
+.cuisines-price-head {
+  color: var(--third-color);
+  font-weight: 400;
+}
+.cuisines-price-name {
+  color: var(--secondry-color);
+  font-weight: 400;
+}
+
+/* filer mobile */
+.accordion-button {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--secondry-color) !important;
+  background-color: white !important;
+}
+.accordion-button::after {
+  color: var(--secondry-color) !important;
+}
+/* pagination styling */
+
+.pagination_section ul li {
+  padding: 0.8rem 1rem;
+  list-style-type: none;
+}
+
+/* pagination hover effect on active*/
+.pagination_section ul li:hover {
+  background-color: var(--third-color);
+  color: white;
+}
+
+.page-number {
+  color: var(--third-color);
+  border-radius: 7px;
+  border: 1px solid var(--third-color);
+}
+
+/* *************************reataurant page************************* */
+.search-main-page {
+  background-color: #fbfbfb;
+}
+.menu-food-item img {
+  height: 100px;
+  width: 100px;
+  border-radius: 2px;
+  background-color: var(--secondry-color);
+}
+.menu-food-item button {
+  position: absolute;
+  bottom: -12%;
+  right: 19%;
+}
+.fa-leaf {
+  color: green;
+}
+.order-item-count {
+  color: green;
+  position: absolute;
+  bottom: -12%;
+  right: 7%;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  opacity: 1;
+}
+.order-item-count span {
+  padding: 0 0.4rem;
+}
+
+.restaurant-menuitem-image img {
+  width: 100%;
+  height: 60vh;
+}
+.restaurant-menuitem-image button {
+  position: absolute;
+  top: 85%;
+  right: 5%;
+  color: var(--secondry-color);
+  font-weight: bold;
+  background: #ffffff 0% 0% no-repeat padding-box;
+}
+
+.restaurant-left-menu button {
+  background-color: var(--dark-red);
+  color: white;
+}
+.restaurant-overview-heading {
+  font-size: 1.6rem;
+  color: var(--secondry-color);
+  font-weight: 500;
+}
+.restaurant-overview-subtitle,
+.restaurant-left-menu ul li {
+  font-size: 1.2rem;
+  color: var(--secondry-color);
+  font-weight: 500;
+}
+.restaurant-overview-subtitle p {
+  color: var(--secondry-color);
+}
+.hand {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    height: 100vh;
+  }
+  .brand-logo {
+    height: 100px;
+    width: 100px;
+  }
+  .brand-name {
+    font-size: 3rem;
+  }
+  .cards {
+    justify-content: center;
+  }
+
+  .menu-item-list {
+    display: flex;
+    justify-content: center;
+  }
+  .quick-search-div {
+    margin-top: 0rem;
+  }
+
+  .restaurant-menuitem-image {
+    height: 25vh;
+  }
+  .shop-name {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 600px) {
+  main {
+    height: 50vh;
+  }
+  .brand-logo {
+    height: 100px;
+    width: 100px;
+  }
+  .quick-search-div {
+    padding-top: 1rem;
+  }
+}

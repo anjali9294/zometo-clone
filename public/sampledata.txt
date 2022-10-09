@@ -1,0 +1,24 @@
+_id:631837c861636f6769096a14
+name:"Breakfast"
+content:"Start your day with exclusive breakfast options"
+image:"assets/breakfast.png"
+meal_type:1
+
+
+
+_id:-1
+name:""
+city:""
+location_id:-1
+city_id:-1
+locality:""
+thumb:[]
+aggregate_rating:0
+rating_text:""
+min_price:0
+contact_number:0
+cuisine_id:[]
+cuisine:[]
+image:""
+mealtype_id:-1
+
