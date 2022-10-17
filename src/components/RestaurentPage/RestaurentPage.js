@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import Header from "../Header";
 import jwt_decode from "jwt-decode";
 import Swal from "sweetalert2";
-import "react-responsive-carousel/lib/styles/carousel.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 function RestaurentPage() {
   let [tab, setTab] = useState(1);
