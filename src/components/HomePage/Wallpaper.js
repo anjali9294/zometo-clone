@@ -8,9 +8,7 @@ function Wallpaper() {
     let value = event.target.value;
     if (value !== "")
       try {
-        let url =
-          "https://zometo-clone-api.herokuapp.com/api/get-restaurant-by-location-id/" +
-          value;
+        let url = "api/get-restaurant-by-location-id/" + value;
         let { data } = await axios.get(url);
         if (data.status === true) {
           if (data.result.length === 0) {
@@ -21,15 +19,13 @@ function Wallpaper() {
         }
       } catch (error) {
         console.log(error);
-        alert("server side error 1");
+        alert("server side error1");
       }
   };
 
   let getLocationList = async () => {
     try {
-      let response = await axios.get(
-        "https://zometo-clone-api.herokuapp.com/api/get-location"
-      );
+      let response = await axios.get("api/get-location");
       let data = response.data;
       if (data.status === true) {
         setLocationList([...data.result]);

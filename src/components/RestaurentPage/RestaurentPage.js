@@ -43,9 +43,7 @@ function RestaurentPage() {
 
   let getRestaurantDetails = async () => {
     try {
-      let URL =
-        "https://zometo-clone-api.herokuapp.com/api/get-restaurant-detail-by-id/" +
-        id;
+      let URL = "/api/get-restaurant-detail-by-id/" + id;
       let { data } = await axios.get(URL);
 
       if (data.status === true) {
@@ -58,9 +56,7 @@ function RestaurentPage() {
     }
   };
   let getMenuItems = async () => {
-    let Url =
-      "https://zometo-clone-api.herokuapp.com/api/get-menu-item-list-by-restaurant-id/" +
-      id;
+    let Url = "/api/get-menu-item-list-by-restaurant-id/" + id;
     let { data } = await axios.get(Url);
     if (data.status === true) {
       setMenuItems([...data.result]);
@@ -106,10 +102,7 @@ function RestaurentPage() {
     var serverData = {
       amount: totalPrice,
     };
-    var { data } = await axios.post(
-      "https://zometo-clone-api.herokuapp.com/api/payment/gen-order",
-      serverData
-    );
+    var { data } = await axios.post("/api/payment/gen-order", serverData);
     var order = data.order;
     console.log(order);
     var options = {
@@ -182,15 +175,15 @@ function RestaurentPage() {
 
       {/* <!-- Modal --> */}
       <div
-        class="modal fade"
+        className="modal fade"
         id="staticBackdrop"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-lg " style={{ height: "75vh" }}>
-          <div class="modal-content">
-            <div class="modal-body h-75">
+        <div className="modal-dialog modal-lg " style={{ height: "75vh" }}>
+          <div className="modal-content">
+            <div className="modal-body h-75">
               <Carousel showThumbs={false} infiniteLoop={true}>
                 {restaurant.thumb.map((value, index) => {
                   return (

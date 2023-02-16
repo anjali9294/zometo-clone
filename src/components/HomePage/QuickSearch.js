@@ -8,9 +8,7 @@ function QuickSearch() {
 
   let getMealtypes = async () => {
     try {
-      let response = await axios.get(
-        "https://zometo-clone-api.herokuapp.com/api/get-meal-type"
-      );
+      let response = await axios.get("/api/get-meal-type");
       let data = response.data;
       if (data.status === true) {
         setMealtypeList([...data.result]); //recreating array by using spread oprator (...)
@@ -32,9 +30,9 @@ function QuickSearch() {
 
   return (
     <>
-      <section className="container-lg second-section d-md-flex justify-content-md-center">
-        <div>
-          <div className="row ">
+      <section className="container-lg second-section d-md-flex justify-content-md-center ">
+        <div className="container-lg">
+          <div className="row container-lg">
             <div className="col-12 quick-search-div">
               <p className="quick-search-head ">Quick Searches</p>
               <p className="quick-search-para pb-3">
@@ -43,7 +41,7 @@ function QuickSearch() {
             </div>
           </div>
           {/* <!-- first row --> */}
-          <div className="row d-flex menu-item-list ">
+          <div className="row d-flex menu-item-list justify-content-center ">
             {mealtypeList.map((mealType, index) => {
               return (
                 <div

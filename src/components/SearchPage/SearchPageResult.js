@@ -11,9 +11,7 @@ function SearchPageResult() {
 
   let getLocationList = async () => {
     try {
-      let response = await axios.get(
-        "https://zometo-clone-api.herokuapp.com/api/get-location"
-      );
+      let response = await axios.get("/api/get-location");
       let data = response.data;
       if (data.status === true) {
         setLocationList([...data.result]);
@@ -26,7 +24,7 @@ function SearchPageResult() {
     }
   };
   let filterOprations = async (filter) => {
-    let url = "https://zometo-clone-api.herokuapp.com/api/filter";
+    let url = "/api/filter";
 
     try {
       let { data } = await axios.post(url, filter);
@@ -75,7 +73,7 @@ function SearchPageResult() {
   useEffect(() => {
     filterOprations(filter);
     getLocationList();
-  }, []);
+  }, [filter]);
 
   return (
     <>
