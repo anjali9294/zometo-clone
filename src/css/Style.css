@@ -70,7 +70,7 @@ body {
   border: none;
   margin-top: 5px;
   border-radius: 3px;
-  display: none;
+  /* display: none; */
 }
 .list-group-item {
   border: none;

@@ -43,7 +43,8 @@ function RestaurentPage() {
 
   let getRestaurantDetails = async () => {
     try {
-      let URL = "/api/get-restaurant-detail-by-id/" + id;
+      let URL =
+        "https://zometo-api.onrender.com/api/get-restaurant-detail-by-id/" + id;
       let { data } = await axios.get(URL);
 
       if (data.status === true) {
@@ -56,7 +57,9 @@ function RestaurentPage() {
     }
   };
   let getMenuItems = async () => {
-    let Url = "/api/get-menu-item-list-by-restaurant-id/" + id;
+    let Url =
+      "https://zometo-api.onrender.com/api/get-menu-item-list-by-restaurant-id/" +
+      id;
     let { data } = await axios.get(Url);
     if (data.status === true) {
       setMenuItems([...data.result]);
@@ -102,7 +105,10 @@ function RestaurentPage() {
     var serverData = {
       amount: totalPrice,
     };
-    var { data } = await axios.post("/api/payment/gen-order", serverData);
+    var { data } = await axios.post(
+      "https://zometo-api.onrender.com/api/payment/gen-order",
+      serverData
+    );
     var order = data.order;
     console.log(order);
     var options = {
@@ -122,7 +128,7 @@ function RestaurentPage() {
         };
 
         var { data } = await axios.post(
-          "https://zometo-clone-api.herokuapp.com/api/payment/verify",
+          "https://zometo-api.onrender.com/api/payment/verify",
           sendData
         );
         if (data.status === true) {

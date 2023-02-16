@@ -8,7 +8,9 @@ function QuickSearch() {
 
   let getMealtypes = async () => {
     try {
-      let response = await axios.get("/api/get-meal-type");
+      let response = await axios.get(
+        "https://zometo-api.onrender.com/api/get-meal-type"
+      );
       let data = response.data;
       if (data.status === true) {
         setMealtypeList([...data.result]); //recreating array by using spread oprator (...)

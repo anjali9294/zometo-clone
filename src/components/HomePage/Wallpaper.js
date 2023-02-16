@@ -1,31 +1,46 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../Header";
 function Wallpaper() {
   let [locationList, setLocationList] = useState([]);
   let [disabled, setDisabled] = useState(true);
+  let [RestaurantTab, setRestaurantTab] = useState([]);
+  const navigate = useNavigate();
   let getLocationId = async (event) => {
     let value = event.target.value;
+    console.log(value);
     if (value !== "")
       try {
-        let url = "api/get-restaurant-by-location-id/" + value;
+        let url =
+          "https://zometo-api.onrender.com/api/get-restaurant-by-location-id/" +
+          value;
         let { data } = await axios.get(url);
         if (data.status === true) {
-          if (data.result.length === 0) {
-            setDisabled(true);
-          } else {
+          if (data.result.length !== 0) {
+            console.log(data.result);
+            setRestaurantTab([data.result]);
             setDisabled(false);
+          } else {
+            setRestaurantTab([]);
+
+            setDisabled(true);
           }
         }
       } catch (error) {
         console.log(error);
         alert("server side error1");
       }
+    else {
+      setDisabled(true);
+    }
   };
 
   let getLocationList = async () => {
     try {
-      let response = await axios.get("api/get-location");
+      let response = await axios.get(
+        "https://zometo-api.onrender.com/api/get-location"
+      );
       let data = response.data;
       if (data.status === true) {
         setLocationList([...data.result]);
@@ -71,13 +86,6 @@ function Wallpaper() {
                   );
                 })}
               </select>
-              <ul className="list-group">
-                <li className="list-group-item">An item</li>
-                <li className="list-group-item">A second item</li>
-                <li className="list-group-item">A third item</li>
-                <li className="list-group-item">A fourth item</li>
-                <li className="list-group-item">And a fifth one</li>
-              </ul>
             </div>
             <div className=" col-lg-4 col-10 ">
               <div className="input-group">
@@ -89,32 +97,36 @@ function Wallpaper() {
                   disabled={disabled}
                 />
               </div>
-              <ul className="list-group">
-                <li className="list-group-item d-flex">
-                  {" "}
-                  <img src="./img/idli.png" alt="" className="search-image" />
-                  <div className="ms-2">
-                    <p className="search-heading m-0">The Big Chill Cakery</p>
-                    <p className="search-para m-0">Sarjapur Road, Bengaluru</p>
-                  </div>
-                </li>
-                <li className="list-group-item  d-flex">
-                  {" "}
-                  <img src="./img/idli.png" alt="" className="search-image" />
-                  <div className="ms-2">
-                    <p className="search-heading m-0">Punjabi Rasoi</p>
-                    <p className="search-para m-0">Sarjapur Road, Bengaluru</p>
-                  </div>
-                </li>
-                <li className="list-group-item  d-flex">
-                  {" "}
-                  <img src="./img/idli.png" alt="" className="search-image" />
-                  <div className="ms-2">
-                    <p className="search-heading m-0">Punjabi Rasoi</p>
-                    <p className="search-para m-0">Sarjapur Road, Bengaluru</p>
-                  </div>
-                </li>
-              </ul>
+
+              {disabled ? null : (
+                <ul className="list-group">
+                  {RestaurantTab.map((restaurant, index) => {
+                    return (
+                      <li
+                        className="list-group-item d-flex"
+                        onClick={() => {
+                          navigate("/restaurant/" + restaurant._id);
+                        }}
+                        key={index}
+                      >
+                        <img
+                          src={"/img/" + restaurant.image}
+                          alt=""
+                          className="search-image"
+                        />
+                        <div className="ms-2">
+                          <p className="search-heading m-0">
+                            {restaurant.name}
+                          </p>
+                          <p className="search-para m-0">
+                            {restaurant.locality}, {restaurant.city}
+                          </p>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
             </div>
           </div>
         </section>
